@@ -1,24 +1,5 @@
 import { motion } from "framer-motion";
-import { Brain, Shield, Car } from "lucide-react";
 import mentoriaImg from "@/assets/mentoria.jpg";
-
-const pillars = [
-  {
-    icon: Brain,
-    title: "Inteligência Emocional",
-    desc: "Gestão de ansiedade e controle emocional para exames e trânsito real.",
-  },
-  {
-    icon: Shield,
-    title: "Direção Defensiva",
-    desc: "Técnicas avançadas de prevenção e antecipação de riscos.",
-  },
-  {
-    icon: Car,
-    title: "Domínio Técnico",
-    desc: "Mecânica preventiva e controle total do veículo.",
-  },
-];
 
 const AboutSection = () => {
   return (
@@ -35,13 +16,24 @@ const AboutSection = () => {
               Sobre a AHEAD
             </p>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
-              Engenharia Comportamental aplicada ao trânsito
+              Você à frente.
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              A AHEAD nasceu de uma visão clara: indivíduos só alcançam resultados exponenciais quando colocam o comportamento humano como pilar estratégico. Seja atrás do volante ou na gestão da sua vida, o fator humano dita o sucesso.
+              A AHEAD Consultoria e Negócios nasceu de uma visão clara: organizações e indivíduos só alcançam resultados exponenciais quando colocam o comportamento humano como pilar estratégico.
             </p>
-            <p className="text-muted-foreground leading-relaxed italic">
-              "A AHEAD é a sua parceira para eliminar a imprevisibilidade."
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Fundada sobre os pilares da <strong className="text-navy">Gestão, Psicologia, Geriatria e Inteligência em Trânsito</strong>, nossa consultoria é focada em transformar desafios complexos em processos de alta performance.
+            </p>
+
+            <div className="bg-secondary/80 rounded-2xl p-6 mb-6">
+              <h3 className="font-heading font-bold text-navy text-lg mb-2">Nossa Filosofia</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Não acreditamos em soluções genéricas ou paliativas. Nossa atuação é baseada em <strong className="text-navy">Engenharia Comportamental</strong>: analisamos, diagnosticamos e estruturamos o desenvolvimento humano para mitigar riscos, reduzir custos operacionais e elevar o padrão de entrega.
+              </p>
+            </div>
+
+            <p className="text-muted-foreground leading-relaxed italic border-l-4 border-electric pl-4">
+              "A AHEAD é a sua parceira para eliminar a imprevisibilidade. Nosso compromisso é elevar o seu nível de prontidão para que você esteja sempre um passo à frente."
             </p>
           </motion.div>
 
@@ -58,26 +50,6 @@ const AboutSection = () => {
               className="rounded-2xl shadow-card w-full object-cover aspect-video"
             />
           </motion.div>
-        </div>
-
-        {/* Pillars */}
-        <div className="grid md:grid-cols-3 gap-8 mt-20">
-          {pillars.map((p, i) => (
-            <motion.div
-              key={p.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-card rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-shadow"
-            >
-              <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center mb-5">
-                <p.icon className="w-6 h-6 text-electric" />
-              </div>
-              <h3 className="text-lg font-bold mb-2">{p.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>

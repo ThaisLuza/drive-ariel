@@ -1,46 +1,49 @@
 import { motion } from "framer-motion";
 import { GraduationCap, MapPin, Mountain } from "lucide-react";
-import { Button } from "../components/ui/button";
+import { Button } from "@/components/ui/button";
 
 const programs = [
   {
     icon: GraduationCap,
     title: "Mentoria First Step",
     subtitle: "Primeira Habilitação B",
-    tagline: "Do nervosismo à aprovação.",
+    tagline: "Do nervosismo à aprovação: a jornada AHEAD começa aqui.",
     desc: "Focamos em controle emocional, legislação aplicada e a técnica precisa para você conquistar sua liberdade com segurança e calma.",
     plans: [
-      { name: "START", hours: "2h", price: "R$ 389,47", highlight: false },
-      { name: "ESSENTIAL", hours: "5h", price: "R$ 657,15", highlight: true },
-      { name: "MASTER", hours: "10h", price: "R$ 1.255,67", highlight: false },
+      { name: "START", hours: "2h", price: "R$ 389,47", highlight: false, desc: "Foco em ajustes de precisão e foco emocional." },
+      { name: "ESSENTIAL", hours: "5h", price: "R$ 657,15", highlight: true, desc: "Domínio do veículo e aperfeiçoamento de Normas de Circulação." },
+      { name: "MASTER", hours: "10h", price: "R$ 1.255,67", highlight: false, desc: "Foco em autonomia. Equilíbrio ideal entre técnica e controle emocional. Segurança total." },
     ],
-    installment: "3x sem juros ou até 6x com juros",
+    installment: "3x sem juros no cartão ou até 6x com juros",
+    note: "Após a CNH, você estará apto para nossa Mentoria Urbana.",
   },
   {
     icon: MapPin,
     title: "Mentoria Urban Driver",
     subtitle: "Aperfeiçoamento Urbano",
     tagline: "Domine a selva de pedra.",
-    desc: "Desenvolva agilidade em cruzamentos, confiança em estacionamentos e a capacidade de antecipar erros de terceiros.",
+    desc: "Desenvolva agilidade em cruzamentos, confiança em estacionamentos e a capacidade de antecipar erros de terceiros. A segurança que você precisa para encarar o trânsito diário de frente.",
     plans: [
-      { name: "START", hours: "2h", price: "R$ 400,00", highlight: false },
-      { name: "ESSENTIAL", hours: "5h", price: "R$ 800,00", highlight: true },
-      { name: "MASTER", hours: "10h", price: "R$ 1.400,00", highlight: false },
+      { name: "START", hours: "2h", price: "R$ 400,00", highlight: false, desc: "Checklist de Inspeção Veicular + Avaliação de Perfil de Condução." },
+      { name: "ESSENTIAL", hours: "5h", price: "R$ 800,00", highlight: true, desc: "Mentoria de Gestão de Estresse no Trânsito + Dicas de Direção Econômica." },
+      { name: "MASTER", hours: "10h", price: "R$ 1.400,00", highlight: false, desc: "Protocolo de Segurança + Mentoria Comportamental para CNH." },
     ],
-    installment: "Até 6x sem juros",
+    installment: "Até 6x sem juros no cartão",
+    note: null,
   },
   {
     icon: Mountain,
     title: "Mentoria Road Master",
     subtitle: "Especialização Rodoviária",
-    tagline: "Autoridade em rodovias.",
-    desc: "Treinamento de alta performance em gestão de velocidade, mecânica preventiva e técnicas avançadas de ultrapassagem.",
+    tagline: "Autoridade em rodovias: prepare seu veículo e sua mente.",
+    desc: "Treinamento de alta performance focado em gestão de velocidade, mecânica preventiva para longas distâncias e técnicas avançadas de ultrapassagem. A estrada não terá segredos para você.",
     plans: [
-      { name: "START", hours: "2h", price: "R$ 500,00", highlight: false },
-      { name: "ESSENTIAL", hours: "5h", price: "R$ 1.150,00", highlight: true },
-      { name: "MASTER", hours: "10h", price: "R$ 2.000,00", highlight: false },
+      { name: "START", hours: "2h", price: "R$ 500,00", highlight: false, desc: "Blindagem Emocional — Mantenha o foco e a calma, eliminando o nervosismo." },
+      { name: "ESSENTIAL", hours: "5h", price: "R$ 1.150,00", highlight: true, desc: "Direção com Propósito — Leia o trânsito com antecedência, antecipando riscos." },
+      { name: "MASTER", hours: "10h", price: "R$ 2.000,00", highlight: false, desc: "Técnica Refinada — Domínio do pedal à ultrapassagem + planejamento de percurso." },
     ],
-    installment: "Até 6x sem juros",
+    installment: "Até 6x sem juros no cartão",
+    note: null,
   },
 ];
 
@@ -108,7 +111,8 @@ const ProgramsSection = () => {
                         </span>
                       )}
                       <h4 className="font-heading font-bold text-lg mb-1">Plano {plan.name}</h4>
-                      <p className="text-muted-foreground text-sm mb-3">{plan.hours} de mentoria</p>
+                      <p className="text-muted-foreground text-sm mb-2">{plan.hours} de mentoria</p>
+                      <p className="text-muted-foreground text-xs leading-relaxed mb-3">{plan.desc}</p>
                       <p className="text-2xl font-extrabold text-navy mb-4">{plan.price}</p>
                       <Button
                         variant={plan.highlight ? "hero" : "heroOutline"}
@@ -122,6 +126,14 @@ const ProgramsSection = () => {
                 </div>
 
                 <p className="text-xs text-muted-foreground mt-4">{prog.installment}**</p>
+                {prog.note && (
+                  <p className="text-xs text-electric/80 mt-2 italic">
+                    {prog.note}
+                  </p>
+                )}
+                <p className="text-xs text-muted-foreground mt-1">
+                  Para reserva de planos com mais de 10h aula, contate-nos via WhatsApp.
+                </p>
               </div>
             </motion.div>
           ))}
